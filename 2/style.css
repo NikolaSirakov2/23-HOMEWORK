@@ -1,0 +1,16 @@
+button {
+    height: 60px;
+    width: 260px;
+    background-color: chocolate;
+    font-size: 30px;
+  }
+
+  button:hover{
+    background-color: rgb(59, 58, 161);
+    color: bisque;
+  }
+
+  #container {
+    width: 1400px;
+    height: 800px;
+  }
