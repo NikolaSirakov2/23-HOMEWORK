@@ -1,0 +1,17 @@
+button {
+    height: 60px;
+    width: 260px;
+    background-color: chocolate;
+    font-size: 30px;
+    margin: 50px;
+  }
+
+  button:hover{
+    background-color: rgb(15, 126, 76);
+    color: rgb(181, 121, 47);
+  }
+
+  #container {
+    width: 1400px;
+    height: 800px;
+  }
