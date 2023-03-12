@@ -28,13 +28,16 @@ let emails = document.getElementById("emails");
             email.value = response[0][n].email;
             email.innerText = response[0][n].email;
             
-            let selectedId = response[0][n].id;
-
             
+
+            emails.addEventListener("input", (e) => {
+
+            let selectedId = response[0][n].id;
+            console.log(e.target.value);
+            console.log("-----");
+
             let postsReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/posts`)
                     .then((posts) => {
-                        console.log(posts);
-                        console.log("---------");
                         return posts;
                     });
 
@@ -43,6 +46,7 @@ let emails = document.getElementById("emails");
                     .then(posts => {
                         for(let i = 0; i < posts.length; i++){
                             let container = document.getElementById("container");
+                            
                             let post = document.createElement("p");
                             post.innerText = posts[i].body;
                             container.appendChild(post);
@@ -51,8 +55,6 @@ let emails = document.getElementById("emails");
 
             let albumsReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/albums`)
                     .then((albums) => {
-                        console.log("---------");
-                        console.log(albums);
                         return albums;
                     });
 
@@ -61,12 +63,33 @@ let emails = document.getElementById("emails");
                     .then(albums => {
                         for(let i = 0; i < albums.length; i++){
                             let container = document.getElementById("albums");
+                            
                             let album = document.createElement("p");
                             album.innerText = albums[i].title;
                             container.appendChild(album);
                         }
+                    })    
+                    
+            let toDoReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/todos`)
+                    .then((todos) => {
+                        return todos;
+                    });
+
+
+            toDoReq
+                    .then(todos => {
+                        for(let i = 0; i < todos.length; i++){
+                            let container = document.getElementById("todo");
+                            
+                            if(todos[i].completed){
+                            let toDo = document.createElement("p");
+                            toDo.innerText = todos[i].title;
+                            container.appendChild(toDo);
+                            }
+                        }
                     })        
-            
+                    
+                })
 
             emails.appendChild(email);
         }
