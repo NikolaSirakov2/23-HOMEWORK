@@ -1,8 +1,4 @@
-
-
-
-
-  let emails = document.getElementById("emails");
+let emails = document.getElementById("emails");
   
 
   function easyFetch(url) {
@@ -26,15 +22,15 @@
   users
     .then(response => {
       
-        for(let n = 0; n < response[0].length; n++){
+        for(let n = 0; n < 1; n++){
             console.log(response[0][n]);
             let email = document.createElement("option");
             email.value = response[0][n].email;
             email.innerText = response[0][n].email;
-            emails.appendChild(email);
-
+            
             let selectedId = response[0][n].id;
 
+            
             let postsReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/posts`)
                     .then((posts) => {
                         console.log(posts);
@@ -42,6 +38,18 @@
                     });
 
 
+            postsReq
+                    .then(posts => {
+                        for(let i = 0; i < posts.length; i++){
+                            let container = document.getElementById("container");
+                            let post = document.createElement("p");
+                            post.innerText = posts[i].body;
+                            container.appendChild(post);
+                        }
+                    })
+            
+
+            emails.appendChild(email);
         }
     })
     .catch(() => {
