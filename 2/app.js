@@ -16,7 +16,7 @@ randomFiveFoxImages.addEventListener("click", () => {
   }
 
   let foxes = Promise.all([
-    easyFetch("https://randomfox.ca/floof"),
+    easyFetch("https://randomfox.ca/floof/"),
     easyFetch("https://randomfox.ca/floof"),
     easyFetch("https://randomfox.ca/floof"),
     easyFetch("https://randomfox.ca/floof"),
