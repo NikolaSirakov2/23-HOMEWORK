@@ -34,6 +34,7 @@ let emails = document.getElementById("emails");
             let postsReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/posts`)
                     .then((posts) => {
                         console.log(posts);
+                        console.log("---------");
                         return posts;
                     });
 
@@ -47,6 +48,24 @@ let emails = document.getElementById("emails");
                             container.appendChild(post);
                         }
                     })
+
+            let albumsReq = easyFetch(`https://jsonplaceholder.typicode.com/users/${selectedId}/albums`)
+                    .then((albums) => {
+                        console.log("---------");
+                        console.log(albums);
+                        return albums;
+                    });
+
+
+            albumsReq
+                    .then(albums => {
+                        for(let i = 0; i < albums.length; i++){
+                            let container = document.getElementById("albums");
+                            let album = document.createElement("p");
+                            album.innerText = albums[i].title;
+                            container.appendChild(album);
+                        }
+                    })        
             
 
             emails.appendChild(email);
