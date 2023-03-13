@@ -1,0 +1,23 @@
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+  }
+
+  .pagination a:hover {
+    color: bisque;
+    background-color: tomato;
+  }
+
+  table, th, td {
+    border:1px solid black;
+  }
+
+  table td {
+    height: 20px;
+  }
