@@ -18,6 +18,10 @@
     border:1px solid black;
   }
 
+  table th {
+    background-color: rgb(236, 70, 70);
+  }
+
   table td {
     height: 20px;
   }
